@@ -1,12 +1,28 @@
-// ES6
 'use strict';
 
-const MESSAGE = "Hello World";
-const dist = document.getElementById('dist');
+{
+  const targets = document.querySelectorAll('img');
 
-let greet = () => {
-    console.log(MESSAGE);
-    dist.innerHTML = MESSAGE;
-  };
+  function callback(entries, obs) {
+    console.log(entries);
 
-greet();
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+  
+      entry.target.classList.add('appear');
+      obs.unobserve(entry.target);
+    });
+  }
+
+  const options = {
+    threshold: 0.2,
+  }
+
+  const observer = new IntersectionObserver(callback, options);
+
+  targets.forEach(target => {
+    observer.observe(target);
+  });
+}
