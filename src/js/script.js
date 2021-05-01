@@ -1,7 +1,7 @@
 // ES6
 'use strict';
 
-const MESSAGE = "Hello World";
+const MESSAGE = "a World";
 const dist = document.getElementById('dist');
 
 let greet = () => {
