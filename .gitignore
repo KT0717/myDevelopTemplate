@@ -43,4 +43,4 @@ firebase.json
 igonore
 
 # ignore bundle.js
-src/assets/dist
+src/dist
