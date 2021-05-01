@@ -13,7 +13,7 @@ const babel = require('gulp-babel');
 const rename = require('gulp-rename');
 
 // ソースディレクトリ
-var source = 'src/assets/';
+var source = 'src/';
 
 // Bootstrap sass ディレクトリ
 var bootstrapSass = {
