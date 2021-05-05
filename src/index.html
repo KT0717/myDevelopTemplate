@@ -16,12 +16,65 @@
 
 <body>
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="border-5 mt-5">
-        <p id="dist" class="h2 p-5">
+    <div class="row">
+      <div class="form-wrapper col mx-auto">
+        <div class="border rounded p-0 p-sm-4 my-5 border-cutstom-hidden">
+          <h4 class="text-center font-weight-bold mb-4">お申し込みフォーム</h4>
+          <form id="form" name='form'>
+            <div class="px-1 mb-4">
+              <label class="form-label d-flex align-items-center" for="username">
+                <span>お名前</span>
+                <span class="small">（ニックネーム可）</span>
+                <span class="small text-danger">（必須）</span>
+              </label>
+              <input class="form-control" type="text" id="your-name" name="username">
+              <small class="err-msg text-danger mt-1 ml-1"></small>
+            </div>
+            <div class="px-1 mb-4">
+              <label class="form-label d-flex align-items-center" for="email">
+                <span>メールアドレス</span>
+                <span class="small text-danger">（必須）</span>
+              </label>
+              <input class="form-control" type="text" id="your-email" name="email">
+              <small class="err-msg text-danger mt-1 ml-1"></small>
+            </div>
+            <div class="px-1 mb-4">
+              <label class="form-label d-flex align-items-center">
+                <span>性別</span>
+                <span class="small text-danger">（必須）</span>
+              </label>
+              <div class="d-flex" id="your-gender">
+                <div class="custom-control custom-radio mr-2">
+                  <input class="custom-control-input" type="radio" id="msex" name="your-gender" value="男">
+                  <label class="custom-control-label" for="msex">
+                    <span>男</span>
+                  </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input class="custom-control-input" type="radio" id="fsex" name="your-gender" value="女">
+                  <label class="custom-control-label" for="fsex">
+                    <span>女</span>
+                  </label>
+                </div>
+              </div>
+              <small class="err-msg text-danger mt-1 ml-1"></small>
+            </div>
+            <div class="px-1 mb-4">
+              <label class="form-label d-flex align-items-center" for="your-tel">
+                <span>電話番号</span>
+                <span class="small text-danger">（必須）</span>
+              </label>
+              <input class="form-control" type="tel" id="your-tel" name="your-tel">
+              <small class="err-msg text-danger mt-1 ml-1"></small>
+            </div>
+            <hr>
+            <div class="px-1 mb-4">
+              <button name="your-submit" class="btn btn-outline-primary w-100" type="submit">確認画面へ</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
   </div>
   <script type="text/javascript" src="/dist/main.min.js"></script>
 </body>
