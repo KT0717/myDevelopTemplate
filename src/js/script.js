@@ -104,16 +104,16 @@ function validSex(mSex, fSex) {
     return false;
   }
 }
+
 // 参加人数確認
 function validateMember(val) {
-  var ttt = val.value;
   var memberFormat = /^[-]?([1-9]\d*|0)(\.\d+)?$/;
-  if (ttt == 0) {
+  if (val.value == 0) {
     val.nextElementSibling.innerHTML = '参加申し込みは 1 人から10人までです';
     val.nextElementSibling.classList.remove('d-none');
     return false;
   }
-  if (ttt > 10) {
+  if (val.value > 10) {
     val.nextElementSibling.innerHTML = '参加申し込みは 1 人から10人までです';
     val.nextElementSibling.classList.remove('d-none');
     return false;
