@@ -7,10 +7,6 @@ var browserSync = require('browser-sync').create();
 var gulpPlumber = require('gulp-plumber');
 var gulpNotify = require('gulp-notify');
 const sourcemaps = require('gulp-sourcemaps');
-const concat = require("gulp-concat");
-const uglify = require("gulp-uglify");
-const babel = require('gulp-babel');
-const rename = require('gulp-rename');
 
 // ソースディレクトリ
 var source = 'src/';
@@ -19,29 +15,6 @@ var source = 'src/';
 var bootstrapSass = {
     in: './node_modules/bootstrap/scss'
 };
-
-//JavaScript ディレクトリ
-var js = {
-    'distDir': source + 'dist/',
-    'watchJs': source + 'js/*.js',
-    'ignore': !source + 'js/lib/*.js'
-}
-
-// javascript
-gulp.task('jsTask', function () {
-    return gulp
-        .src([
-            js.watchJs,
-            js.ignore,
-        ])
-        .pipe(concat('main.js'))
-        .pipe(babel({
-            presets: ["@babel/preset-env"]
-        }))
-        .pipe(uglify())
-        .pipe(rename('main.min.js'))
-        .pipe(gulp.dest(js.distDir));
-});
 
 // sass、css関連の変数を設定
 var sass = {
@@ -96,11 +69,10 @@ gulp.task('browser-sync', function () {
 
     // sass,JS,ディレクトリを監視し、更新があれば自動コンパイルしてブラウザに反映
     gulp.watch(sass.watch, gulp.series('sass'));
-    gulp.watch(js.watchJs, gulp.series('jsTask'));
     // htmlディレクトリ、jsディレクトリを監視し、更新があればブラウザをリロード
-    gulp.watch(['src/' + '*html', source + 'css/*', source + 'js/*']).on('change', browserSync.reload);
+    gulp.watch(['src/' + '*html', source + 'css/*']).on('change', browserSync.reload);
 
 });
 
 // 各タスクを直列で実行
-gulp.task('default', gulp.series('sass', 'jsTask', 'browser-sync'));
+gulp.task('default', gulp.series('sass', 'browser-sync'));
