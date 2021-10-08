@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>myDevelopTemplate</title>
+  <title>課題</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <script type="text/javascript" src="/js/lib/jquery-3.5.1.min.js"></script>
@@ -17,10 +17,80 @@
 <body>
   <div class="container">
     <div class="row justify-content-center">
-
+      <div class="wrap">
+        <div class="img">
+          <p>あああ</p>
+        </div>
+        <span class="shadow-bottom"></span>
+      </div>
     </div>
   </div>
-  <script type="text/javascript" src="/dist/main.min.js"></script>
+  <style>
+    body {
+      background-color: #ccc;
+    }
+
+    .wrap {
+      position: relative;
+    }
+
+    .img {
+      position: relative;
+      margin: 30px auto 7px;
+      background-color: #e90000;
+      border: 2px solid #ffae00;
+      height: 50px;
+      width: 375px;
+      display: flex;
+      line-height: 50px;
+      box-shadow: 0px 6px #004200;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .img::after, .img::before {
+      top: 100%;
+      left: 50%;
+      border: solid transparent;
+      content: "";
+      height: 0;
+      width: 0;
+      position: absolute;
+    }
+
+    .img::after {
+      border-top-color: #e90000;
+      border-width: 15px;
+      margin-left: -15px;
+    }
+
+    .img::before {
+      border-top-color: #ffae00;
+      border-width: 18px;
+      margin-left: -18px;
+    }
+
+    .img p {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .shadow-bottom {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 28px;
+      border-top: 50px solid #004200;
+      border-right: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+      border-left: 50px solid transparent;
+      z-index: 1;
+    }
+
+
+  </style>
 </body>
 
 </html>
